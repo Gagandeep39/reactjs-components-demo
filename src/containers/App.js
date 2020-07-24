@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classes from './App.module.css';
-import Person from './Person/Person';
+import Person from '../components/Persons/Person/Person';
 
 function App() {
   const [personState, setPersonState] = useState({
@@ -38,27 +38,11 @@ function App() {
     });
   };
 
-  // Added a sdelete button hadler
   const deleteButtonHandler = (personIndex) => {
     // Ass a good prcatie we must always update the arryain immute manner i.e without changing inital state
     const persons = [...personState.persons];
     persons.splice(personIndex, 1);
     setPersonState({ persons: persons });
-  };
-
-  const style = {
-    backgroundColor: 'green',
-    color: 'white',
-    font: 'inherit',
-    border: '1px solid blue',
-    padding: '8px',
-    cursor: 'pointer',
-    // Requies radium package
-    // Must be inside single quotes as they are not valid css properties in vanilla react
-    ':hover': {
-      backgroundColor: 'salmon',
-      color: 'black',
-    },
   };
 
   let btnClass = [classes.Button];
@@ -96,5 +80,4 @@ function App() {
   );
 }
 
-// export default Radium(App);
 export default App;

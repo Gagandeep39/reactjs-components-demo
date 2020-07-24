@@ -2,13 +2,7 @@ import React from 'react';
 import classes from './Person.module.css';
 
 const person = (props) => {
-  const style = {
-    '@media (min-width: 500px)': {
-      width: '450px',
-    },
-  };
   return (
-    // Css Module
     <div className={classes.Person}>
       <p> I'm a Person!</p>
       <p>
