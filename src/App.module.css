@@ -20,6 +20,14 @@
 }
 
 .Button:hover {
-  background-color: salmon;
+  background-color: lightgreen;
   color: black;
+}
+
+.Button.Red {
+  background-color: red;
+}
+
+.Button.Red:hover {
+  background-color: salmon;
 }
