@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classes from './App.module.css';
-import Person from '../components/Persons/Person/Person';
+import Persons from '../components/Persons/Persons';
 
 function App() {
   const [personState, setPersonState] = useState({
@@ -50,17 +50,11 @@ function App() {
   if (showHideState.buttonState) {
     personView = (
       <div>
-        {personState.persons.map((person, index) => {
-          return (
-            <Person
-              key={person.id}
-              change={(event) => nameChangeHandler(event, person.id)}
-              name={person.name}
-              age={person.age}
-              deleteButton={() => deleteButtonHandler(index)}
-            />
-          );
-        })}
+        <Persons
+          persons={personState.persons}
+          change={nameChangeHandler}
+          deleteButton={deleteButtonHandler}
+        />
       </div>
     );
     btnClass.push(classes.Red);
