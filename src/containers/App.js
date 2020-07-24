@@ -62,10 +62,11 @@ function App() {
 
   let assignedClasses = [];
   if (personState.persons.length <= 2)
-    assignedClasses = ['red', 'bold'].join(' ');
+    assignedClasses = [classes.red, classes.bold].join(' ');
 
   return (
     <div className={classes.App}>
+      <p className={assignedClasses}>Delete Elements tp chnge Css styling</p>
       <button className={btnClass.join(' ')} onClick={showHideButtonHandler}>
         Show/Hide Persons
       </button>
