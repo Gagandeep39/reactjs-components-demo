@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classes from './App.module.css';
 import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 function App() {
   const [personState, setPersonState] = useState({
@@ -45,31 +46,24 @@ function App() {
     setPersonState({ persons: persons });
   };
 
-  let btnClass = [classes.Button];
   let personView = null;
   if (showHideState.buttonState) {
     personView = (
-      <div>
-        <Persons
-          persons={personState.persons}
-          change={nameChangeHandler}
-          deleteButton={deleteButtonHandler}
-        />
-      </div>
+      <Persons
+        persons={personState.persons}
+        change={nameChangeHandler}
+        deleteButton={deleteButtonHandler}
+      />
     );
-    btnClass.push(classes.Red);
   } else personView = null;
-
-  let assignedClasses = [];
-  if (personState.persons.length <= 2)
-    assignedClasses = [classes.red, classes.bold].join(' ');
 
   return (
     <div className={classes.App}>
-      <p className={assignedClasses}>Delete Elements tp chnge Css styling</p>
-      <button className={btnClass.join(' ')} onClick={showHideButtonHandler}>
-        Show/Hide Persons
-      </button>
+      <Cockpit
+        persons={personState.persons}
+        buttonState={showHideState.buttonState}
+        button={showHideButtonHandler}
+      />
       {personView}
     </div>
   );
